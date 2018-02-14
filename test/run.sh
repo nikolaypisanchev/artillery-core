@@ -4,6 +4,8 @@ SILENT=true node test/targets/simple.js &
 simple_pid=$!
 node test/targets/simple_ws.js &
 ws_pid=$!
+node test/targets/simple_amqp.js &
+amqp_pid=$!
 node test/targets/simple_socketio.js &
 io_pid=$!
 node test/targets/express_socketio.js &
@@ -25,8 +27,10 @@ test_status=$?
 
 kill $simple_pid
 kill $ws_pid
+kill $amqp_pid
 kill $io_pid
 kill $express_pid
 kill $ws_tls_pid
+
 
 exit $test_status

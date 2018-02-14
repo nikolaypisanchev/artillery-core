@@ -1,0 +1,18 @@
+{
+  "config": {
+      "target": "amqp://127.0.0.1:5672",
+      "phases": [
+        {"duration": 15, "arrivalRate": 1}
+      ]
+  },
+  "scenarios": [
+    {
+      "engine": "amqp",
+      "flow": [
+        {"send": { "queueName": "someQueue", "message": "hello"}},
+        {"send": { "queueName": "someQueue", "message": "hello2"}},
+        {"think": 1}
+      ]
+    }
+  ]
+}
